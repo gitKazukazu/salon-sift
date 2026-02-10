@@ -1,0 +1,8 @@
+{
+  "name": "SALON SIFT - main",
+  "description": "A high-fidelity landing page for a premium share salon in Gunma, featuring high-end aesthetics, forest green accents, and a localized experience for Takasaki and Maebashi.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
