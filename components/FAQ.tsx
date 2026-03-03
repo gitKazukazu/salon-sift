@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const FAQ: React.FC = () => {
@@ -14,10 +15,10 @@ const FAQ: React.FC = () => {
               ご利用をご検討中の皆さまから寄せられたご質問の一部をご紹介します。
               そのほか、お問い合わせフォームやLINEでも随時ご質問を承っておりますので、どうぞお気軽にお知らせください。
             </p>
-            <a href="#" className="flex items-center gap-4 text-[12px] font-bold tracking-widest border-b border-gray-300 pb-2 w-fit hover:border-[#3a533d] transition-colors">
+            <Link to="/faq" className="flex items-center gap-4 text-[12px] font-bold tracking-widest border-b border-gray-300 pb-2 w-fit hover:border-[#3a533d] transition-colors">
               <span>FAQ一覧</span>
               <ArrowRight size={14} />
-            </a>
+            </Link>
           </div>
           <div className="lg:w-1/2 relative">
             <div className="relative overflow-hidden shadow-2xl">

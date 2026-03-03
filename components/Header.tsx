@@ -1,6 +1,8 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, HelpCircle, ArrowUpRight } from 'lucide-react';
+import Logo from './Logo';
 
 const Header: React.FC = () => {
   return (
@@ -9,27 +11,24 @@ const Header: React.FC = () => {
 
         {/* Logo */}
         <div className="flex items-center">
-          <div className="flex flex-col items-center">
-            <div className="text-[22px] md:text-[26px] font-bold tracking-tighter flex items-center leading-none">
-              <span className="font-montserrat text-[#333]">SALON SIFT</span>
-            </div>
-
-          </div>
+          <Link to="/" className="flex flex-col items-center">
+            <Logo />
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden xl:flex items-center space-x-10 text-[12px] font-bold tracking-[0.2em] text-[#333]">
-          <a href="#rule" className="hover:text-[#3a533d] transition-colors">SALON SIFTとは</a>
-          <a href="#salons" className="hover:text-[#3a533d] transition-colors flex items-center gap-2">
+          <a href="/#rule" className="hover:text-[#3a533d] transition-colors">SALON SIFTとは</a>
+          <Link to="/salons" className="hover:text-[#3a533d] transition-colors flex items-center gap-2">
             サロン情報 <span className="bg-black text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-montserrat">1</span>
-          </a>
-          <a href="#simulation" className="flex items-center space-x-2 hover:text-[#3a533d] transition-colors">
+          </Link>
+          <a href="/#simulation" className="flex items-center space-x-2 hover:text-[#3a533d] transition-colors">
             <span className="w-2 h-2 bg-[#3a533d] rounded-full"></span>
             <span>収益シミュレーション</span>
           </a>
-          <a href="#faq" className="hover:text-[#3a533d] transition-colors">FAQ</a>
-          <a href="#blog" className="hover:text-[#3a533d] transition-colors">ブログ</a>
-          <a href="#voice" className="hover:text-[#3a533d] transition-colors">美容師の声</a>
+          <Link to="/faq" className="hover:text-[#3a533d] transition-colors">FAQ</Link>
+          <Link to="/blog" className="hover:text-[#3a533d] transition-colors">ブログ</Link>
+          <Link to="/voice" className="hover:text-[#3a533d] transition-colors">美容師の声</Link>
         </nav>
 
         {/* Right Buttons */}
@@ -45,7 +44,7 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
-    </header>
+    </header >
   );
 };
 

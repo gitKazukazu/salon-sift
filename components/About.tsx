@@ -1,5 +1,5 @@
-
 import React from 'react';
+import Logo from './Logo';
 
 const ABOUT_ITEMS = [
   {
@@ -58,13 +58,9 @@ const About: React.FC = () => {
         <div className="hidden md:block relative h-[800px] w-full max-w-[1000px] mx-auto reveal">
 
           {/* Central Logo Container */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center bg-[#f7f7f5] px-8 py-4">
-            <div className="flex flex-col items-center">
-              <div className="text-[34px] font-bold tracking-[0.05em] text-[#333] flex items-center leading-none">
-                <span className="font-montserrat">SALON SIFT</span>
-                <span className="text-[12px] font-bold ml-1 align-top">®</span>
-              </div>
-
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] z-20 text-center bg-[#f7f7f5] px-8 py-4">
+            <div className="flex flex-col items-center scale-75 md:scale-90 opacity-90">
+              <Logo />
             </div>
           </div>
 
@@ -93,9 +89,8 @@ const About: React.FC = () => {
         <div className="block md:hidden reveal">
           {/* Header in SP */}
           <div className="flex flex-col items-center mb-12">
-            <div className="text-[24px] font-bold tracking-tighter text-[#333] flex flex-col items-center">
-              <span className="font-montserrat">SALON SIFT<span className="text-[8px] align-top ml-0.5">®</span></span>
-
+            <div className="scale-75 opacity-90">
+              <Logo />
             </div>
             <div className="w-full h-px bg-gray-300 mt-8"></div>
           </div>

@@ -1,6 +1,8 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Instagram, ArrowRight, ArrowUpRight } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
@@ -11,19 +13,19 @@ const Footer: React.FC = () => {
             <div className="space-y-10">
               <p className="text-gray-400 border-l-2 border-gray-200 pl-4 mb-10">サイトマップ</p>
               <ul className="space-y-6">
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">TOP <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTブログ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTとは <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTの特長 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTの報酬制度 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">サロン情報 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+                <li><Link to="/" className="hover:text-[#3a533d] transition-colors flex items-center group">TOP <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/blog" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTブログ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><a href="/#rule" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTとは <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+                <li><a href="/#features" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTの特長 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+                <li><a href="/#salary" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTの報酬制度 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+                <li><Link to="/salons" className="hover:text-[#3a533d] transition-colors flex items-center group">サロン情報 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               </ul>
             </div>
             <div className="space-y-10 pt-16 md:pt-20">
               <ul className="space-y-6">
 
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">BLOG <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors flex items-center group">FAQ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+                <li><Link to="/blog" className="hover:text-[#3a533d] transition-colors flex items-center group">BLOG <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/faq" className="hover:text-[#3a533d] transition-colors flex items-center group">FAQ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
                 <li><a href="#" className="hover:text-[#3a533d] transition-colors inline-block pt-4">
                   <Instagram size={24} className="hover:scale-110 transition-transform" />
                 </a></li>
@@ -49,11 +51,8 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="py-24 md:py-40 flex flex-col items-center px-6">
-        <div className="text-[15vw] md:text-[12vw] font-montserrat font-bold tracking-[-0.05em] text-[#3a533d] leading-none mb-12 select-none group flex items-center">
-          SALON SIFT
-          <span className="text-[2.5vw] font-bold align-top border-[6px] md:border-[8px] border-[#3a533d] ml-6 px-3 py-1 group-hover:bg-[#3a533d] group-hover:text-white transition-all">R</span>
-        </div>
-        <p className="text-[11px] font-bold tracking-[0.6em] text-gray-400 uppercase">© 2026 SALON SIFT. All rights reserved.</p>
+        <Logo className="mb-12 scale-[1.5] md:scale-[2.5]" />
+        <p className="text-[11px] font-bold tracking-[0.6em] text-gray-400 uppercase mt-4 md:mt-10">© 2026 SALON SIFT. All rights reserved.</p>
       </div>
     </footer>
   );

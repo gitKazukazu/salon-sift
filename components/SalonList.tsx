@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, ArrowRight, ExternalLink } from 'lucide-react';
 import { SALONS } from '../constants';
 
@@ -68,11 +69,11 @@ const SalonList: React.FC = () => {
         </div>
 
         <div className="mt-24 pt-12 border-t border-white/5 text-center">
-          <a href="#" className="group inline-flex items-center space-x-6 text-white text-[13px] font-bold tracking-[0.3em] hover:translate-x-2 transition-transform">
+          <Link to="/salons" className="group inline-flex items-center space-x-6 text-white text-[13px] font-bold tracking-[0.3em] hover:translate-x-2 transition-transform">
             <span>SALON SIFT 店舗情報</span>
             <div className="w-12 h-px bg-white/40 group-hover:w-20 transition-all"></div>
             <ArrowRight size={24} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,90 +1,37 @@
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import VoiceListPage from './pages/VoiceListPage';
+import SalonInfoPage from './pages/SalonInfoPage';
+import BlogListPage from './pages/BlogListPage';
+import FAQListPage from './pages/FAQListPage';
 
-import React, { useEffect, useRef } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Ticker from './components/Ticker';
-import Statement from './components/Statement';
-import About from './components/About';
-import Features from './components/Features';
-import SalarySystem from './components/SalarySystem';
-import ChallengeSupport from './components/ChallengeSupport';
-import SalonList from './components/SalonList';
-import BlogNews from './components/BlogNews';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
-
-function App() {
-  const revealRefs = useRef<HTMLElement[]>([]);
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    }, observerOptions);
+  return null;
+};
 
-    const elements = document.querySelectorAll('.reveal');
-    elements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
+function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      <Header />
-      <main>
-        <Hero />
-        <Ticker />
-
-        <div className="reveal">
-          <Statement />
-        </div>
-
-        <div className="reveal">
-          <About />
-        </div>
-
-        <div className="reveal">
-          <Features />
-        </div>
-
-        <div className="reveal">
-          <SalarySystem />
-        </div>
-
-        <div className="reveal">
-          <ChallengeSupport />
-        </div>
-
-        <div className="reveal flex justify-center py-24 bg-white">
-          <div className="text-[12vw] font-montserrat font-bold tracking-tighter text-[#3a533d] opacity-[0.03] leading-none select-none">
-            SALON SIFT
-          </div>
-        </div>
-
-        <div className="reveal">
-          <SalonList />
-        </div>
-
-        <div className="reveal">
-          <BlogNews />
-        </div>
-
-        <div className="reveal">
-          <FAQ />
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="voice" element={<VoiceListPage />} />
+          <Route path="salons" element={<SalonInfoPage />} />
+          <Route path="blog" element={<BlogListPage />} />
+          <Route path="faq" element={<FAQListPage />} />
+          {/* We will add other pages here later */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

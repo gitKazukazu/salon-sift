@@ -1,51 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SALON SIFT - 群馬最大級のハイブリッドシェアサロン</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --forest-green: #3a533d;
-        --beige-light: #f7f7f5;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SALON SIFT - 群馬最大級のハイブリッドシェアサロン</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Prata&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --forest-green: #3a533d;
+      --beige-light: #f7f7f5;
+    }
+
+    body {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background-color: var(--beige-light);
+      color: #333;
+    }
+
+    .font-montserrat {
+      font-family: 'Prata', serif;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
       }
-      body {
-        font-family: 'Noto Sans JP', sans-serif;
-        background-color: var(--beige-light);
-        color: #333;
+
+      100% {
+        transform: translateX(-50%);
       }
-      .font-montserrat {
-        font-family: 'Montserrat', sans-serif;
-      }
-      @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        animation: marquee 40s linear infinite;
-      }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      /* Scroll Reveal Classes */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
-    <script type="importmap">
+    }
+
+    .animate-marquee {
+      animation: marquee 40s linear infinite;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Scroll Reveal Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script type="importmap">
     {
       "imports": {
         "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
@@ -57,8 +72,10 @@
     </script>
   <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="antialiased selection:bg-[#3a533d] selection:text-white">
-    <div id="root"></div>
+
+<body class="antialiased selection:bg-[#3a533d] selection:text-white">
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

@@ -3,10 +3,8 @@ import React, { useState, useEffect } from 'react';
 
 const Hero: React.FC = () => {
   const images = [
-    '/assets/hero_exterior.png',
-    '/assets/hero_interior.png',
-    '/assets/hero_shampoo.png',
-    '/assets/hero_shampoo.png'
+    '/assets/hero_1.png',
+    '/assets/hero_3.png'
   ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -42,13 +40,18 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-white text-[8vw] md:text-[5rem] font-bold leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] tracking-[-0.03em]">
-              “ 群馬最大級 ”
+            <div className="bg-[#3a533d] text-white text-[12px] md:text-sm font-bold px-4 py-2 inline-block mb-2 shadow-lg">
+              群馬｜業務委託で損してる美容師へ（ネイル・アイも順次受付中）
+            </div>
+            <h1 className="text-white text-[6vw] md:text-[4rem] font-bold leading-[1.2] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] tracking-[-0.03em]">
+              「今の契約、<br />本当に得ですか？」
             </h1>
-            <div className="bg-white/95 backdrop-blur-md inline-block px-5 py-2 md:px-10 md:py-4 shadow-2xl transform md:-translate-x-4">
-              <p className="text-[#333] text-[3vw] md:text-2xl font-bold tracking-[0.15em] whitespace-nowrap leading-none">
-                あなたの近くにシェアサロン。
-              </p>
+            <div className="bg-white/95 backdrop-blur-md inline-block px-6 py-5 md:px-10 md:py-8 shadow-2xl mt-4 max-w-lg">
+              <ul className="text-[#333] text-[4vw] md:text-2xl font-bold tracking-[0.05em] leading-relaxed space-y-3">
+                <li className="flex items-center"><span className="text-[#3a533d] mr-2">✔</span> 売上70万 → <span className="text-[#B91C1C] mx-1">手取り60万</span>設計</li>
+                <li className="flex items-center"><span className="text-[#3a533d] mr-2">✔</span> 集客はサロン負担</li>
+                <li className="flex items-center"><span className="text-[#3a533d] mr-2">✔</span> 最低保証30万〜</li>
+              </ul>
             </div>
           </div>
         </div>

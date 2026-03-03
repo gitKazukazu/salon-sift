@@ -22,9 +22,9 @@ const Features: React.FC = () => {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="mb-20">
           <p className="text-[12px] font-bold tracking-[0.4em] text-white/50 mb-2 uppercase">Good point</p>
-          <h2 className="text-white text-3xl font-bold font-montserrat tracking-widest">SALON SIFT の特長</h2>
-          <p className="text-white/70 text-sm mt-4 leading-relaxed max-w-2xl">
-            SALON SIFTが提案するのは、これまでの常識を変えるキャリアの"シフト"です。ただ職場を選ぶのではなく、あなた自身が「働き方を設計する」未来へ。高水準の還元率と集客サポート、そして柔軟なキャリアプランで、美容師としての新しい可能性を広げます。
+          <h2 className="text-white text-3xl font-bold font-montserrat tracking-widest">REAL FACTS</h2>
+          <p className="text-white/70 text-sm mt-4 leading-relaxed max-w-2xl font-bold">
+            綺麗事は言いません。今の業務委託環境で「将来に漠然と不安がある」「一生懸命働いているのに手取りが増えない」なら、必ず読んでください。SALON SIFTが他サロンとは一線を画す「リアルな事実と覚悟」をお伝えします。
           </p>
         </div>
 

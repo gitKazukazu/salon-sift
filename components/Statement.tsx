@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const Statement: React.FC = () => {
@@ -23,10 +24,10 @@ const Statement: React.FC = () => {
               <p>こころから満足できる、美容師人生のために。</p>
             </div>
 
-            <a href="#blog" className="inline-flex items-center gap-4 text-sm font-bold tracking-widest text-[#3a533d] border-b border-[#3a533d] pb-2 group">
+            <Link to="/voice" className="inline-flex items-center gap-4 text-sm font-bold tracking-widest text-[#3a533d] border-b border-[#3a533d] pb-2 group">
               <span>美容師の声一覧</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </div>
 
           <div className="lg:w-1/2 order-1 lg:order-2">
