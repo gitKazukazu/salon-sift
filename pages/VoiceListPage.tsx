@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { NEWS } from '../constants';
 
 const VoiceListPage: React.FC = () => {
@@ -17,12 +18,12 @@ const VoiceListPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {interviews.map((interview) => (
-                        <article key={interview.id} className="bg-white group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+                        <Link to={`/voice/${interview.id}`} key={interview.id} className="bg-white group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 block">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <img
                                     src={interview.imageUrl}
                                     alt={interview.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute top-4 left-4 bg-[#3a533d] text-white text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
                                     {interview.category}
@@ -37,7 +38,7 @@ const VoiceListPage: React.FC = () => {
                                     <span className="text-[#3a533d] text-[10px] font-bold tracking-widest uppercase border-b border-[#3a533d] pb-1 group-hover:px-2 transition-all">Read More</span>
                                 </div>
                             </div>
-                        </article>
+                        </Link>
                     ))}
                 </div>
 

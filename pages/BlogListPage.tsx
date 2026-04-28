@@ -1,10 +1,9 @@
 import React from 'react';
-import { NEWS } from '../constants';
+import { Link } from 'react-router-dom';
+import { BLOG_POSTS } from '../constants';
 
 const BlogListPage: React.FC = () => {
-    const blogs = NEWS.filter(post => post.category !== 'INTERVIEW');
-    // For this example, let's treat all items as blog posts if we don't have enough data
-    const displayBlogs = blogs.length > 0 ? blogs : NEWS;
+    const displayBlogs = BLOG_POSTS;
 
     return (
         <div className="bg-[#f7f7f5] min-h-screen pt-24 pb-32">
@@ -19,15 +18,15 @@ const BlogListPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {displayBlogs.map((blog) => (
-                        <article key={blog.id} className="group cursor-pointer">
-                            <div className="relative aspect-[16/9] overflow-hidden mb-6">
+                        <Link to={`/blog/${blog.id}`} key={blog.id} className="group cursor-pointer block bg-white shadow-sm hover:shadow-xl transition-all duration-300 rounded-sm">
+                            <div className="relative aspect-[16/9] overflow-hidden">
                                 <img
                                     src={blog.imageUrl}
                                     alt={blog.title}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                             </div>
-                            <div>
+                            <div className="p-6">
                                 <div className="flex items-center gap-4 mb-3">
                                     <span className="text-[11px] font-bold tracking-widest text-[#3a533d] border border-[#3a533d] px-2 py-1 uppercase">
                                         {blog.category}
@@ -39,8 +38,11 @@ const BlogListPage: React.FC = () => {
                                 <h2 className="text-lg font-bold text-gray-900 leading-relaxed mb-4 group-hover:text-[#3a533d] transition-colors line-clamp-2">
                                     {blog.title}
                                 </h2>
+                                <div className="flex justify-end">
+                                    <span className="text-[#3a533d] text-[10px] font-bold tracking-widest uppercase border-b border-[#3a533d] pb-1 group-hover:px-2 transition-all">Read More</span>
+                                </div>
                             </div>
-                        </article>
+                        </Link>
                     ))}
                 </div>
             </div>

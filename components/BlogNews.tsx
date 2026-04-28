@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { NEWS } from '../constants';
+import { NEWS, BLOG_POSTS } from '../constants';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 type TabType = 'INTERVIEW' | 'OTHER';
@@ -10,11 +10,7 @@ const BlogNews: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('INTERVIEW');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const displayNews = NEWS.filter(item =>
-    activeTab === 'INTERVIEW'
-      ? item.category === 'INTERVIEW'
-      : item.category !== 'INTERVIEW'
-  );
+  const displayNews = activeTab === 'INTERVIEW' ? NEWS : BLOG_POSTS;
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -24,10 +20,12 @@ const BlogNews: React.FC = () => {
   };
 
   return (
-    <section id="blog" className="bg-[#f7f7f5] py-20 md:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-[12px] font-bold tracking-[0.4em] text-gray-400 mb-2 uppercase">Blog & News</p>
+    <section id="blog" className="bg-[#f7f7f5] py-20 md:py-32 overflow-hidden relative">
+      <div className="absolute top-10 left-[5%] text-[9vw] font-montserrat font-bold italic text-gray-300/40 pointer-events-none select-none leading-none z-0">
+        Blog & News
+      </div>
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="text-center mt-10 md:mt-12 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-widest">新着記事</h2>
 
           <div className="mt-10 flex justify-center">
@@ -55,7 +53,7 @@ const BlogNews: React.FC = () => {
           >
             {displayNews.length > 0 ? (
               displayNews.map((item, idx) => (
-                <div key={item.id} className="min-w-[280px] md:min-w-[320px] bg-white shadow-sm snap-start group/card">
+                <Link to={activeTab === 'INTERVIEW' ? `/voice/${item.id}` : `/blog/${item.id}`} key={item.id} className="min-w-[280px] md:min-w-[320px] bg-white shadow-sm snap-start group/card block">
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" />
                     <div className="absolute top-0 left-0 bg-[#3a533d] text-white text-[60px] font-montserrat font-bold leading-none p-2 opacity-10">
@@ -71,7 +69,7 @@ const BlogNews: React.FC = () => {
                       {item.title}
                     </h3>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <div className="w-full py-20 text-center text-gray-400 font-bold tracking-widest text-sm flex items-center justify-center">

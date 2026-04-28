@@ -26,7 +26,7 @@ const SalonInfoPage: React.FC = () => {
                     <img
                         src={salon.imageUrl}
                         alt={salon.name}
-                        className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-1000"
+                        className="w-full h-full object-cover transition-all duration-1000"
                     />
                     <div className="absolute top-6 left-6 md:top-10 md:left-10 bg-[#B91C1C] text-white px-6 py-3 text-xs md:text-sm font-bold tracking-widest shadow-lg">
                         ただいま美容師・アイリスト急募中
@@ -81,7 +81,7 @@ const SalonInfoPage: React.FC = () => {
                                     <MapPin size={20} className="text-[#3a533d] shrink-0 mt-0.5" />
                                     <div>
                                         <p className="leading-relaxed mb-2">{salon.address}</p>
-                                        <a href={`https://maps.google.com/?q=${salon.address}`} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-[#3a533d] border-b border-[#3a533d] hover:text-[#B91C1C] hover:border-[#B91C1C] transition-colors">
+                                        <a href={`https://maps.google.com/?q=${encodeURIComponent(salon.address.split('(')[0].trim())}`} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-[#3a533d] border-b border-[#3a533d] hover:text-[#B91C1C] hover:border-[#B91C1C] transition-colors">
                                             Google Maps で開く
                                         </a>
                                     </div>
@@ -108,7 +108,7 @@ const SalonInfoPage: React.FC = () => {
                                 )}
                                 {salon.links.beauty && (
                                     <a href={salon.links.beauty} className="border border-gray-300 text-center py-4 text-xs font-bold tracking-widest hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                                        Official Website <ExternalLink size={14} />
+                                        楽天ビューティ <ExternalLink size={14} />
                                     </a>
                                 )}
                             </div>

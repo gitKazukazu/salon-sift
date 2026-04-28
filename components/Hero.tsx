@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 md:px-16 flex flex-col justify-start pt-20 md:pt-24">
         <div className="max-w-4xl">
           <div className="mb-8 inline-block bg-white/95 backdrop-blur-sm px-4 py-2 text-[9px] md:text-[10px] font-bold tracking-[0.4em] uppercase border-l-[4px] border-[#3a533d] shadow-lg">
-            hybrid share salon
+            SALON SIFT
           </div>
 
           <div className="space-y-4">
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
 
       <div className="absolute bottom-12 left-2 md:left-8 flex items-center gap-10">
         <div className="text-black text-[10px] font-bold tracking-[0.5em] uppercase [writing-mode:vertical-rl] select-none">
-          the hybrid share salon
+          SALON SIFT
         </div>
         <div className="w-px h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
       </div>

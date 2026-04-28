@@ -22,7 +22,7 @@ const FAQ: React.FC = () => {
           </div>
           <div className="lg:w-1/2 relative">
             <div className="relative overflow-hidden shadow-2xl">
-              <img src="/images/faq_staff_jp_v2.png" alt="FAQ Image" className="w-full h-auto aspect-[2/1] object-cover" />
+              <img src="/images/faq_staff_jp_v3.png" alt="FAQ Image" className="w-full h-auto aspect-[2/1] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
           </div>

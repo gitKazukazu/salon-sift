@@ -3,7 +3,11 @@ import React from 'react';
 import { FEATURES_DATA } from '../constants';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Features: React.FC = () => {
+interface FeaturesProps {
+  hideBackgroundText?: boolean;
+}
+
+const Features: React.FC<FeaturesProps> = ({ hideBackgroundText = false }) => {
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -15,9 +19,11 @@ const Features: React.FC = () => {
 
   return (
     <section className="bg-[#3a533d] py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[18vw] font-montserrat font-bold text-white/[0.03] pointer-events-none select-none leading-none">
-        FEATURES
-      </div>
+      {!hideBackgroundText && (
+        <div className="absolute top-10 left-[5%] text-[10vw] font-montserrat font-bold italic text-white/[0.04] pointer-events-none select-none leading-none">
+          Features
+        </div>
+      )}
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="mb-20">

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SalarySystem: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const SalarySystem: React.FC = () => {
          
          <div className="border border-gray-100 p-10 md:p-24 mb-20 bg-white shadow-[0_60px_120px_rgba(0,0,0,0.08)] rounded-sm relative overflow-hidden group">
            <div className="absolute top-0 left-0 w-full h-1 bg-[#3a533d]"></div>
-           <p className="text-[13px] font-bold tracking-[0.4em] mb-12 border-b border-gray-50 pb-6 text-gray-400 uppercase">業界最高水準の歩合率</p>
+           <p className="text-[16px] font-bold tracking-[0.4em] mb-12 border-b border-gray-50 pb-6 text-gray-400 uppercase">業界最高水準の歩合率</p>
            
            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 mb-12">
              <div className="flex items-end transition-transform duration-500 group-hover:scale-110">
@@ -42,9 +43,9 @@ const SalarySystem: React.FC = () => {
            </div>
          </div>
 
-         <button className="bg-[#3a533d] text-white px-16 md:px-24 py-6 md:py-8 font-bold tracking-[0.4em] text-[13px] md:text-[14px] hover:bg-[#2d412f] transition-all shadow-[0_20px_40px_rgba(58,83,61,0.3)] hover:shadow-[0_30px_60px_rgba(58,83,61,0.4)] hover:-translate-y-2 uppercase">
+         <Link to="/simulation" className="bg-[#3a533d] text-white px-16 md:px-24 py-6 md:py-8 font-bold tracking-[0.4em] text-[13px] md:text-[14px] hover:bg-[#2d412f] transition-all shadow-[0_20px_40px_rgba(58,83,61,0.3)] hover:shadow-[0_30px_60px_rgba(58,83,61,0.4)] hover:-translate-y-2 uppercase inline-block">
            収益シミュレーションはこちら
-         </button>
+         </Link>
       </div>
       
       {/* Background Decorative Pattern */}

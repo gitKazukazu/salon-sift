@@ -3,14 +3,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const Statement: React.FC = () => {
-  return (
-    <section className="bg-[#f7f7f5] py-20 md:py-32 px-6">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-[12px] font-bold tracking-[0.4em] text-gray-400 mb-2 uppercase">Statement</p>
-        </div>
+interface StatementProps {
+  hideBackgroundText?: boolean;
+}
 
+const Statement: React.FC<StatementProps> = ({ hideBackgroundText = false }) => {
+  return (
+    <section className="bg-[#f7f7f5] py-20 md:py-32 px-6 relative overflow-hidden">
+      {!hideBackgroundText && (
+        <div className="absolute top-10 left-[5%] text-[10vw] font-montserrat font-bold italic text-gray-300/40 pointer-events-none select-none leading-none z-0">
+          Statement
+        </div>
+      )}
+      <div className="max-w-[1200px] mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
           <div className="lg:w-1/2 space-y-10 order-2 lg:order-1">
             <h2 className="text-3xl md:text-4xl font-bold leading-[1.4] text-gray-900">
@@ -32,17 +37,18 @@ const Statement: React.FC = () => {
 
           <div className="lg:w-1/2 order-1 lg:order-2">
             <div className="relative">
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-12 md:col-span-8">
-                  <img src="/images/statement/hero.png" alt="Hero portrait" className="w-full h-[400px] md:h-[600px] object-cover shadow-2xl" />
+              <div className="relative h-[450px] md:h-[650px] w-full mt-10 lg:mt-0">
+                <div className="absolute top-8 left-0 w-[80%] md:w-[70%] h-[320px] md:h-[500px] reveal delay-100 z-10">
+                  <img src="/images/statement/hero.png" alt="Hero portrait" className="w-full h-full object-cover shadow-xl" />
                 </div>
-                <div className="hidden md:block col-span-4 space-y-4 pt-12">
-                  <img src="/images/statement/detail1.png" alt="Detail 1" className="w-full h-[200px] object-cover" />
-                  <img src="/images/statement/detail2.png" alt="Detail 2" className="w-full h-[280px] object-cover" />
+                <div className="absolute top-0 right-2 md:-right-8 w-[45%] md:w-[40%] h-[180px] md:h-[280px] reveal delay-300 z-20">
+                  <img src="/images/statement/detail1.png" alt="Detail 1" className="w-full h-full object-cover shadow-lg border-4 md:border-8 border-white" />
+                </div>
+                <div className="absolute bottom-0 right-6 md:right-2 w-[55%] md:w-[50%] h-[200px] md:h-[340px] reveal delay-500 z-30">
+                  <img src="/images/statement/detail2.png" alt="Detail 2" className="w-full h-full object-cover shadow-2xl border-4 md:border-8 border-white" />
                 </div>
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -bottom-8 -right-8 w-48 h-48 border-4 border-[#3a533d]/10 -z-10 hidden md:block"></div>
+
             </div>
           </div>
         </div>

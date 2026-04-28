@@ -49,7 +49,11 @@ const ABOUT_ITEMS = [
   }
 ];
 
-const About: React.FC = () => {
+interface AboutProps {
+  hideBackgroundText?: boolean;
+}
+
+const About: React.FC<AboutProps> = ({ hideBackgroundText = false }) => {
   return (
     <section id="rule" className="bg-[#f7f7f5] py-20 md:py-40 overflow-hidden relative">
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
@@ -116,9 +120,11 @@ const About: React.FC = () => {
       </div>
 
       {/* Background Decorative Typography */}
-      <div className="absolute top-[10%] right-[-5%] text-[15vw] font-montserrat font-bold text-gray-300/40 pointer-events-none select-none leading-none">
-        ABOUT
-      </div>
+      {!hideBackgroundText && (
+        <div className="absolute top-[10%] right-[5%] text-[10vw] font-montserrat font-bold italic text-gray-300/40 pointer-events-none select-none leading-none">
+          About
+        </div>
+      )}
     </section>
   );
 };

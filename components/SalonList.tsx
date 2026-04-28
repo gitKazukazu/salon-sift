@@ -7,8 +7,8 @@ import { SALONS } from '../constants';
 const SalonList: React.FC = () => {
   return (
     <section id="salons" className="bg-[#3a533d] py-20 md:py-32 overflow-hidden relative">
-      <div className="absolute top-10 right-0 text-[18vw] font-montserrat font-bold text-white/[0.02] pointer-events-none select-none leading-none">
-        SALON INFO
+      <div className="absolute top-10 right-[5%] text-[10vw] font-montserrat font-bold italic text-white/[0.04] pointer-events-none select-none leading-none">
+        Salon Info
       </div>
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
@@ -43,7 +43,7 @@ const SalonList: React.FC = () => {
                     <MapPin size={20} className="mt-1 flex-shrink-0 text-white/40" />
                     <div>
                       <p className="text-sm leading-relaxed mb-2">{salon.address}</p>
-                      <a href="#" className="inline-flex items-center gap-1 text-[10px] font-bold bg-white/10 px-2 py-1 hover:bg-white/20 transition-colors uppercase">
+                      <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(salon.address.split('(')[0].trim())}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] font-bold bg-white/10 px-2 py-1 hover:bg-white/20 transition-colors uppercase">
                         Mapで見る <ExternalLink size={10} />
                       </a>
                     </div>

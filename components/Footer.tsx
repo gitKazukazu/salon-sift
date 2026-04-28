@@ -9,26 +9,34 @@ const Footer: React.FC = () => {
     <footer className="bg-white">
       <div className="bg-[#f7f7f5] py-24 md:py-32 px-6">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div className="grid grid-cols-2 gap-10 md:gap-20 text-[11px] font-bold tracking-[0.4em] uppercase">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 text-[11px] font-bold tracking-[0.4em] uppercase">
             <div className="space-y-10">
               <p className="text-gray-400 border-l-2 border-gray-200 pl-4 mb-10">サイトマップ</p>
               <ul className="space-y-6">
-                <li><Link to="/" className="hover:text-[#3a533d] transition-colors flex items-center group">TOP <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-                <li><Link to="/blog" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTブログ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-                <li><a href="/#rule" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTとは <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="/#features" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTの特長 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-                <li><a href="/#salary" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTの報酬制度 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+                <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[#3a533d] transition-colors flex items-center group">TOP <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/about" className="hover:text-[#3a533d] transition-colors flex items-center group">SALON SIFTとは <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><a href="/#simulation" className="hover:text-[#3a533d] transition-colors flex items-center group">報酬制度 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
                 <li><Link to="/salons" className="hover:text-[#3a533d] transition-colors flex items-center group">サロン情報 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              </ul>
-            </div>
-            <div className="space-y-10 pt-16 md:pt-20">
-              <ul className="space-y-6">
-
-                <li><Link to="/blog" className="hover:text-[#3a533d] transition-colors flex items-center group">BLOG <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/voice" className="hover:text-[#3a533d] transition-colors flex items-center group">美容師の声 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/blog" className="hover:text-[#3a533d] transition-colors flex items-center group">ブログ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
                 <li><Link to="/faq" className="hover:text-[#3a533d] transition-colors flex items-center group">FAQ <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-                <li><a href="#" className="hover:text-[#3a533d] transition-colors inline-block pt-4">
+                <li><a href="https://www.instagram.com/salon_sift_recruit?igsh=MTNzOGZ4a2dvcjRwZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-[#3a533d] transition-colors inline-block pt-4">
                   <Instagram size={24} className="hover:scale-110 transition-transform" />
                 </a></li>
+              </ul>
+            </div>
+            <div className="space-y-10">
+              <p className="text-gray-400 border-l-2 border-gray-200 pl-4 mb-10">エリア別求人</p>
+              <ul className="space-y-6">
+                <li><Link to="/area/takasaki" className="hover:text-[#3a533d] transition-colors flex items-center group">高崎 美容師求人 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              </ul>
+            </div>
+            <div className="space-y-10">
+              <p className="text-gray-400 border-l-2 border-gray-200 pl-4 mb-10">働き方別求人</p>
+              <ul className="space-y-6">
+                <li><Link to="/work/seishain" className="hover:text-[#3a533d] transition-colors flex items-center group">正社員 <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/work/gyoumuitaku" className="hover:text-[#3a533d] transition-colors flex items-center group">業務委託（フリーランス）<ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+                <li><Link to="/work/parttime" className="hover:text-[#3a533d] transition-colors flex items-center group">パート・アルバイト <ArrowUpRight size={10} className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               </ul>
             </div>
           </div>
