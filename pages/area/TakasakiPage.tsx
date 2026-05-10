@@ -95,7 +95,7 @@ const TakasakiPage: React.FC = () => {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="https://line.me"
+                href="https://line.me/ti/p/exrAW4jmt5"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-white text-[#3a533d] font-bold tracking-widest px-8 py-4 hover:bg-green-50 transition-colors"
@@ -243,7 +243,7 @@ const TakasakiPage: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold font-montserrat tracking-widest mb-4">高崎で、あなたの美容師キャリアを再設計する</h2>
           <p className="text-green-100 text-sm mb-10">まずはLINEで気軽にご相談ください。見学・面談は無料です。</p>
           <a
-            href="https://line.me"
+            href="https://line.me/ti/p/exrAW4jmt5"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-white text-[#3a533d] font-bold tracking-widest px-10 py-5 hover:bg-green-50 transition-colors"

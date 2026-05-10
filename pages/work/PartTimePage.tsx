@@ -82,7 +82,7 @@ const PartTimePage: React.FC = () => {
               プライベートや家庭と両立しながら無理なく働けます。
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <a href="https://line.me" target="_blank" rel="noopener noreferrer"
+              <a href="https://line.me/ti/p/exrAW4jmt5" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center bg-white text-[#3a533d] font-bold tracking-widest px-8 py-4 hover:bg-green-50 transition-colors">
                 LINEで無料相談 <ArrowRight size={18} className="ml-2" />
               </a>
@@ -241,7 +241,7 @@ const PartTimePage: React.FC = () => {
         <div className="py-16 md:py-24 px-6 bg-[#3a533d] text-white text-center">
           <h2 className="text-2xl md:text-3xl font-bold font-montserrat tracking-widest mb-4">自分のペースで、群馬で美容師として働く</h2>
           <p className="text-green-100 text-sm mb-10">まずはLINEで気軽にご相談ください。見学・面談は無料です。</p>
-          <a href="https://line.me" target="_blank" rel="noopener noreferrer"
+          <a href="https://line.me/ti/p/exrAW4jmt5" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center bg-white text-[#3a533d] font-bold tracking-widest px-10 py-5 hover:bg-green-50 transition-colors">
             LINEで無料相談・見学予約 <ArrowRight size={20} className="ml-3" />
           </a>

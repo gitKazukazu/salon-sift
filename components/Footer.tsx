@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <a href="https://line.me" target="_blank" rel="noopener noreferrer" className="bg-white border-[3px] border-[#3a533d] p-10 md:p-16 relative overflow-hidden group block shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
+          <a href="https://line.me/ti/p/exrAW4jmt5" target="_blank" rel="noopener noreferrer" className="bg-white border-[3px] border-[#3a533d] p-10 md:p-16 relative overflow-hidden group block shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
               <div>
                 <h3 className="text-[36px] md:text-[52px] font-montserrat font-bold text-[#3a533d] mb-4 leading-none uppercase">Entry from LINE</h3>
