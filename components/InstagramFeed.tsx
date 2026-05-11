@@ -1,56 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { Instagram, ExternalLink } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Instagram } from 'lucide-react';
 
-interface InstagramPost {
-  id: string;
-  media_url: string;
-  media_type: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
-  permalink: string;
-  caption?: string;
-  timestamp: string;
-  thumbnail_url?: string;
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
 }
 
 const INSTAGRAM_URL = 'https://www.instagram.com/salon_sift_recruit';
 
-// プレースホルダー投稿（APIが未設定の場合に表示）
-const PLACEHOLDER_POSTS: InstagramPost[] = Array.from({ length: 6 }, (_, i) => ({
-  id: `placeholder-${i}`,
-  media_url: '',
-  media_type: 'IMAGE',
-  permalink: INSTAGRAM_URL,
-  caption: 'SALON SIFT の最新情報はInstagramをチェック！',
-  timestamp: new Date().toISOString(),
-}));
+const EMBED_POSTS = [
+  { id: 'DXlt5EYE5Ll', permalink: 'https://www.instagram.com/p/DXlt5EYE5Ll/' },
+  { id: 'DXlth6zE8vB', permalink: 'https://www.instagram.com/p/DXlth6zE8vB/' },
+  { id: 'DXVM12Rk0mR', permalink: 'https://www.instagram.com/p/DXVM12Rk0mR/' },
+];
+
+const SCRIPT_ID = 'instagram-embed-script';
 
 const InstagramFeed: React.FC = () => {
-  const [posts, setPosts] = useState<InstagramPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await fetch('/api/instagram');
-        if (!res.ok) throw new Error('API error');
-        const data = await res.json();
-        if (data.data && data.data.length > 0) {
-          setPosts(data.data.slice(0, 9)); // 最大9件表示
-        } else {
-          setError(true);
-        }
-      } catch {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
+    if (!document.getElementById(SCRIPT_ID)) {
+      // 初回：スクリプトを動的に追加
+      const script = document.createElement('script');
+      script.id = SCRIPT_ID;
+      script.src = 'https://www.instagram.com/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+    } else if (window.instgrm) {
+      // 既にスクリプト読込済みの場合は再処理
+      window.instgrm.Embeds.process();
+    }
   }, []);
-
-  const displayPosts = (!loading && !error && posts.length > 0) ? posts : PLACEHOLDER_POSTS;
-  const showPlaceholder = error || loading || posts.length === 0;
 
   return (
     <section className="bg-white py-20 md:py-32 px-6">
@@ -81,79 +65,34 @@ const InstagramFeed: React.FC = () => {
           </a>
         </div>
 
-        {/* Feed Grid */}
-        {loading ? (
-          <div className="grid grid-cols-3 gap-2 md:gap-3">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div key={i} className="aspect-square bg-gray-100 animate-pulse" />
-            ))}
-          </div>
-        ) : showPlaceholder ? (
-          // API未設定時のプレースホルダーUI
-          <div className="grid grid-cols-3 gap-2 md:gap-3">
-            {PLACEHOLDER_POSTS.map((_, i) => (
-              <a
-                key={i}
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square bg-[#f7f7f5] flex flex-col items-center justify-center group hover:bg-[#eef2ee] transition-colors border border-gray-100 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#3a533d]/5 to-transparent" />
-                <Instagram
-                  className="text-[#3a533d]/40 group-hover:text-[#3a533d]/70 transition-colors mb-3"
-                  size={i === 4 ? 48 : 32}
-                />
-                {i === 4 && (
-                  <p className="text-xs font-bold text-[#3a533d]/60 tracking-widest text-center px-4">
-                    Instagramで<br />最新投稿を見る
-                  </p>
-                )}
-              </a>
-            ))}
-          </div>
-        ) : (
-          // 実際のInstagram投稿グリッド
-          <div className="grid grid-cols-3 gap-2 md:gap-3">
-            {displayPosts.map((post) => {
-              const imgSrc = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
-              return (
-                <a
-                  key={post.id}
-                  href={post.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-square relative overflow-hidden group block bg-gray-100"
-                >
-                  {imgSrc && (
-                    <img
-                      src={imgSrc}
-                      alt={post.caption?.slice(0, 50) || 'SALON SIFT Instagram'}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                  )}
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                    <ExternalLink
-                      className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      size={28}
-                    />
-                  </div>
-                  {/* VIDEO indicator */}
-                  {post.media_type === 'VIDEO' && (
-                    <div className="absolute top-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 font-bold tracking-wider">
-                      VIDEO
-                    </div>
-                  )}
-                </a>
-              );
-            })}
-          </div>
-        )}
+        {/* Embed Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center">
+          {EMBED_POSTS.map((post) => (
+            <a
+              key={post.id}
+              href={post.permalink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="instagram-crop block group"
+            >
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink={`${post.permalink}?utm_source=ig_embed&utm_campaign=loading`}
+                data-instgrm-version="14"
+                style={{
+                  background: '#FFF',
+                  padding: 0,
+                }}
+              />
+              <div className="instagram-crop-overlay">
+                <Instagram className="text-white drop-shadow-lg" size={40} strokeWidth={1.5} />
+              </div>
+            </a>
+          ))}
+        </div>
 
         {/* Footer link */}
-        <div className="mt-8 text-center">
+        <div className="mt-12 text-center">
           <a
             href={INSTAGRAM_URL}
             target="_blank"

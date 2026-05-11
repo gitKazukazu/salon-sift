@@ -2,6 +2,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.15);
   }
@@ -9,4 +10,64 @@
 
 .animate-ken-burns {
   animation: ken-burns 20s ease-out infinite alternate;
+}
+
+/* Instagram embed: crop to image area only (hide header/action bar/caption) */
+.instagram-crop {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1.25;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.instagram-crop {
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.instagram-crop:hover {
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.18), 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.instagram-crop iframe.instagram-media,
+.instagram-crop blockquote.instagram-media {
+  transition: transform 0.5s ease;
+  pointer-events: none;
+  position: absolute !important;
+  top: -54px !important;
+  left: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.instagram-crop:hover iframe.instagram-media,
+.instagram-crop:hover blockquote.instagram-media {
+  transform: scale(1.06);
+}
+
+.instagram-crop-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(131, 58, 180, 0.0) 0%, rgba(253, 29, 29, 0.0) 50%, rgba(252, 176, 69, 0.0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.instagram-crop:hover .instagram-crop-overlay {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(131, 58, 180, 0.55) 0%, rgba(253, 29, 29, 0.45) 50%, rgba(252, 176, 69, 0.5) 100%);
 }
