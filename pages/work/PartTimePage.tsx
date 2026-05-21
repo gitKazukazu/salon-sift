@@ -74,7 +74,7 @@ const PartTimePage: React.FC = () => {
           <div className="max-w-[900px] mx-auto">
             <p className="text-sm font-bold tracking-widest text-green-300 mb-4 uppercase">Working Style / パート・アルバイト</p>
             <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest mb-6 leading-tight">
-              群馬の美容師<br />パート・アルバイト求人
+              群馬・高崎・前橋の美容師<br />パート・アルバイト求人
             </h1>
             <p className="text-base md:text-lg text-green-100 leading-relaxed max-w-2xl">
               群馬で美容師のパート・アルバイト求人をお探しの方へ。<br />

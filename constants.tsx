@@ -72,7 +72,7 @@ export const NEWS: NewsPost[] = [
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】高崎店の独立支援制度を利用して夢を叶えたスタイリスト',
-    imageUrl: '/images/voice_1_new.png',
+    imageUrl: '/images/voice_1_new.webp',
     profile: '群馬県出身、28歳。都内の有名シティーサロンで5年間スタイリストとして勤務し、確かな技術とトレンド感覚を身につける。将来的に地元での実店舗独立を強く思い描き、初期費用・固定費のリスクを最小限に抑えながら自身の顧客基盤を築けるSALON SIFTへ加入。現在は自身のブランドを育成しながら、充実した日々を送っている。',
     schedule: [
       { time: '09:30', activity: '出勤・準備' },
@@ -89,7 +89,7 @@ export const NEWS: NewsPost[] = [
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】自分のペースで働く、前橋エリアの新しい美容師のカタチ',
-    imageUrl: '/images/voice_2_new.png',
+    imageUrl: '/images/voice_2_new.webp',
     profile: '前橋市出身、29歳。これまでは大手サロンの激務により体調を崩しがちだったが、自分らしくマイペースに働きたいという強い思いから、自由出勤制度を最大限に活用できるシェアサロンでの働き方を選択。現在は趣味のカメラや旅行を満喫しつつ、リピーターのお客様を大切にしながら、以前を上回る高収入を実現している。',
     schedule: [
       { time: '11:00', activity: 'ゆっくり出勤・メール確認' },
@@ -106,7 +106,7 @@ export const NEWS: NewsPost[] = [
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】子育てとキャリアを両立。ママ美容師のシェアサロン活用法',
-    imageUrl: '/images/voice_3_new.png',
+    imageUrl: '/images/voice_3_new.webp',
     profile: '34歳、2児の母。長年スタイリストとして第一線で活躍していたが、出産と育児によりやむなく休職。復帰にあたり、保育園のお迎え時間や子供の急な体調不良といった制約がある中で、短時間でも高単価かつ高バックの恩恵を受けながら、キャリアを諦めずにプロとして活躍し続けているママ美容師。',
     schedule: [
       { time: '08:30', activity: '子供を保育園へ送り、そのまま出勤' },
@@ -123,7 +123,7 @@ export const NEWS: NewsPost[] = [
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】24歳で独立。SALON SIFTがくれた自信と集客のチャンス',
-    imageUrl: '/images/voice_4_new.png',
+    imageUrl: '/images/voice_4_new.webp',
     profile: '24歳。アシスタント時代からSNSでのスタイル発信に力を入れ、最短でスタイリストデビューを果たした後、最年少で独立枠に挑戦。SALON SIFTの強力なSNS集客支援と本人のセンスが爆発的な化学反応を起こし、若年層から絶大な支持を得て予約が常に埋まる注目の若手トップスタイリスト。',
     schedule: [
       { time: '10:00', activity: '出勤・SNSの投稿準備' },
@@ -140,7 +140,7 @@ export const NEWS: NewsPost[] = [
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】移籍初月から手取り60万。高還元率がもたらした生活の変化',
-    imageUrl: '/images/voice_5_new.png',
+    imageUrl: '/images/voice_5_new.webp',
     profile: '31歳。長年の下積みと努力で多くの指名客を抱えるようになったものの、待遇が一向に改善されないことに限界を感じ、前職からのお客様を引き連れてSALON SIFTへ完全移籍。売上規模はそのままに、サロンの圧倒的な還元率のおかげで手取り収入が劇的に向上し、生活スタイルが一変した敏腕スタイリスト。',
     schedule: [
       { time: '09:00', activity: '出勤・カルテチェック' },
@@ -157,7 +157,7 @@ export const NEWS: NewsPost[] = [
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】高崎駅前という好立地を武器に、顧客ゼロからスタート',
-    imageUrl: '/images/voice_6_new.png',
+    imageUrl: '/images/voice_6_new.webp',
     profile: '27歳。パートナーの転勤に伴い他県からの転居を余儀なくされ、新規のお客さまのあてが全くいない「顧客ゼロ」という不利な状態からSALON SIFTでリスタート。高崎駅前という圧倒的な好立地と、サロン本体の強力な新規集客力をフル活用し、持ち前の接客力で次々とリピーターを獲得。わずか3ヶ月で予約困難な人気スタイリストへと這い上がった。',
     schedule: [
       { time: '10:00', activity: '出勤・朝礼（自由参加）' },

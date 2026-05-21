@@ -33,10 +33,15 @@ const Header: React.FC = () => {
 
         {/* Right Buttons */}
         <div className="flex items-center gap-6">
-          <div className="hidden lg:flex items-center gap-2 text-[11px] font-bold tracking-wider text-gray-500 border-b border-gray-300 pb-1 cursor-pointer hover:border-[#3a533d] transition-all">
+          <a
+            href="https://line.me/ti/p/exrAW4jmt5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:flex items-center gap-2 text-[11px] font-bold tracking-wider text-gray-500 border-b border-gray-300 pb-1 cursor-pointer hover:border-[#3a533d] transition-all"
+          >
             <HelpCircle size={15} />
             <span>お問い合わせ・見学予約はこちら</span>
-          </div>
+          </a>
 
           <button className="xl:hidden flex flex-col gap-1.5 p-2">
             <div className="w-8 h-0.5 bg-gray-900"></div>

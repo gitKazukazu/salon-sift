@@ -37,7 +37,7 @@ const AboutPage: React.FC = () => {
             {/* Page Header */}
             <div className="pt-16 pb-4 text-center px-6 reveal">
                 <p className="text-[12px] font-bold tracking-[0.4em] text-[#3a533d] mb-4 uppercase">About Us</p>
-                <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">SALON SIFTの理念と戦略</h1>
+                <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">群馬の美容師が選ぶ美容室<br className="md:hidden" /> SALON SIFTの理念と戦略</h1>
                 <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-bold">
                     美容師としての「働き方」を自ら設計できる自由と、<br className="hidden md:block" />
                     圧倒的な環境が生み出す最高のパフォーマンスについて。

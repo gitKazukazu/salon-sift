@@ -10,7 +10,7 @@ const VoiceListPage: React.FC = () => {
             <div className="max-w-[1200px] mx-auto px-6">
                 <div className="text-center mb-16 md:mb-24">
                     <p className="text-[12px] font-bold tracking-[0.4em] text-[#3a533d] mb-4 uppercase">Voice</p>
-                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">美容師のリアルな声</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">群馬で働く美容師のリアルな声<br className="md:hidden" />｜高崎・前橋の美容室求人</h1>
                     <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-bold">
                         綺麗事は言いません。ここで語られているのは、現状に不満を抱き、環境を変えることで「圧倒的なリターン」と「時間的自由」を手に入れたメンバーのリアルな記録です。
                     </p>

@@ -86,7 +86,7 @@ const TakasakiPage: React.FC = () => {
               <span>群馬県 / 高崎エリア</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest mb-6 leading-tight">
-              高崎の美容師求人
+              高崎の美容師求人<br />｜群馬・前橋エリアの美容室
             </h1>
             <p className="text-base md:text-lg text-green-100 leading-relaxed max-w-2xl">
               高崎で美容師求人をお探しの方へ。<br />

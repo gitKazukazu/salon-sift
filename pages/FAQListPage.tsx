@@ -4,7 +4,7 @@ import { FAQS } from '../constants';
 
 const MORE_FAQS = [
     ...FAQS,
-    { id: 4, question: '本当に手取り60万になりますか？', answer: '現在の売上が70万円（税抜）で、材料を持参してお客様を施術した場合、80%還元により56万円が報酬となります。そこに各種手当や指名料のバックを含めると、手取り60万円の設計が十分に可能です。ただし、売上が上がらなければ報酬も上がりません。' },
+    { id: 4, question: '本当に手取り60万になりますか？', answer: 'はい，なります。収益シミュレーションを一緒にやりましょう。正しくこういう手順で60万円になるというのは当日打ち合わせにて共有させていただきます。' },
     { id: 5, question: '集客は本当にサロン負担ですか？', answer: 'はい。大手集客サイト（HotPepper Beauty等）の最上位プランやSNS広告費はすべてサロンが負担しています。しかし「ただ待っているだけ」の方にはお客様はつきません。プロフィール作成やスタイル写真の提供など、自己プロデュースには協力していただきます。' },
     { id: 6, question: '誰でも採用してもらえますか？', answer: 'いいえ。私たちは「現状に甘んじる人」や「サロンのせいにする人」はお断りしています。また、一定レベルの技術力と接客力があるかを確認するため、面談と技術チェックは厳格に行います。' }
 ];
@@ -23,7 +23,7 @@ const FAQListPage: React.FC = () => {
             <div className="max-w-[800px] mx-auto px-6">
                 <div className="text-center mb-16 md:mb-24">
                     <p className="text-[12px] font-bold tracking-[0.4em] text-[#3a533d] mb-4 uppercase">FAQ</p>
-                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">よくあるご質問</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">群馬の美容師求人 よくあるご質問<br className="md:hidden" />｜高崎・前橋の美容室 SALON SIFT</h1>
                     <p className="text-sm md:text-base text-gray-600 leading-relaxed font-bold">
                         都合の良いメリットだけでなく、厳しい条件も含めて「すべて」お答えします。
                     </p>

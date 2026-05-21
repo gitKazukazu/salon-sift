@@ -11,7 +11,7 @@ const SalonInfoPage: React.FC = () => {
             <div className="max-w-[1200px] mx-auto px-6">
                 <div className="text-center mb-16 md:mb-24">
                     <p className="text-[12px] font-bold tracking-[0.4em] text-[#3a533d] mb-4 uppercase">Flagship Salon</p>
-                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">{salon.name}</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">{salon.name}<br /><span className="text-base md:text-lg block mt-3 tracking-wider">群馬・高崎エリアの美容師求人 美容室</span></h1>
                     <div className="text-[10px] font-bold tracking-[0.2em] text-[#3a533d] border border-[#3a533d] px-3 py-1 inline-block mb-6">
                         {salon.city}
                     </div>
@@ -74,7 +74,7 @@ const SalonInfoPage: React.FC = () => {
                     {/* 右側：アクセスと基本情報 */}
                     <div className="lg:col-span-5">
                         <div className="bg-white shadow-xl p-8 md:p-10 sticky top-28">
-                            <h3 className="text-xl font-bold font-montserrat tracking-widest border-b border-gray-200 pb-4 mb-8">ACCESS & INFO</h3>
+                            <h2 className="text-xl font-bold font-montserrat tracking-widest border-b border-gray-200 pb-4 mb-8">ACCESS & INFO</h2>
 
                             <div className="space-y-6 text-sm font-bold text-gray-700 mb-10">
                                 <div className="flex items-start gap-4 pb-6 border-b border-gray-100">
