@@ -17,7 +17,40 @@ export const SALONS: SalonLocation[] = [
     address: '〒370-0004 群馬県高崎市井野町1122 (最寄:井野駅)',
     phone: '090-9378-4632',
     imageUrl: '/images/salon_sift_main.jpg',
-    links: { hotpepper: '#', beauty: '#' }
+    links: { hotpepper: '#', beauty: '#' },
+    label: 'Flagship Salon',
+    subtitle: '群馬・高崎エリアの美容師求人 美容室',
+    description: '設備投資は私たちが負担します。あなたは自分の技術とお客様に向き合うだけです。\nハイエンドな空間と最新の設備を備えた、私たちの旗艦店です。',
+    recruitBadge: 'ただいま美容師・アイリスト急募中',
+    businessHours: '9:00 - 22:00（自由出勤制）',
+    holidays: '年中無休（シフト自由）',
+    recruitRequirements: [
+      {
+        title: '圧倒的な還元率',
+        body: '材料持込の場合は売上の<span class="text-[#B91C1C] text-base">80%還元</span>。サロン材料を使用する場合でも70%という高水準の還元率を実現。'
+      },
+      {
+        title: '集客の全面バックアップ',
+        body: 'ホットペッパービューティーの最上位プランやSNS広告費はすべてサロン側で負担。新規フリー客への入客チャンスも豊富に確保しています。'
+      },
+      {
+        title: 'ネイル・アイラッシュ技術者も歓迎',
+        body: '美容師と全く同じ「手取り最大化」の条件で合流可能です。個室や専用ブースをご用意しています。'
+      },
+      {
+        title: '※自己管理の徹底',
+        body: '自由な働き方を推奨しますが、お客様への責任感とプロとしての「最低限の自己管理」ができない方は契約を解除する場合があります。',
+        isWarning: true
+      }
+    ],
+    facilities: [
+      '全席半個室・フルフラット',
+      '最新のカラー剤・パーマ液',
+      '撮影機材・照明器具貸出無料',
+      'ロッカー・スタッフルーム',
+      'タオルクリーニング業者委託',
+      'Wi-Fi・電源・充電器完備'
+    ]
   },
   {
     id: 'takasaki',
@@ -69,6 +102,7 @@ export const FEATURES_DATA = [
 export const NEWS: NewsPost[] = [
   {
     id: 1,
+    slug: 'takasaki-independence-stylist',
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】高崎店の独立支援制度を利用して夢を叶えたスタイリスト',
@@ -86,11 +120,12 @@ export const NEWS: NewsPost[] = [
   },
   {
     id: 2,
+    slug: 'takasaki-flexible-work-style',
     date: '2025.06.26',
     category: 'INTERVIEW',
-    title: '【インタビュー】自分のペースで働く、前橋エリアの新しい美容師のカタチ',
+    title: '【インタビュー】自分のペースで働く、高崎エリアの新しい美容師のカタチ',
     imageUrl: '/images/voice_2_new.webp',
-    profile: '前橋市出身、29歳。これまでは大手サロンの激務により体調を崩しがちだったが、自分らしくマイペースに働きたいという強い思いから、自由出勤制度を最大限に活用できるシェアサロンでの働き方を選択。現在は趣味のカメラや旅行を満喫しつつ、リピーターのお客様を大切にしながら、以前を上回る高収入を実現している。',
+    profile: '高崎市出身、29歳。これまでは大手サロンの激務により体調を崩しがちだったが、自分らしくマイペースに働きたいという強い思いから、自由出勤制度を最大限に活用できるシェアサロンでの働き方を選択。現在は趣味のカメラや旅行を満喫しつつ、リピーターのお客様を大切にしながら、以前を上回る高収入を実現している。',
     schedule: [
       { time: '11:00', activity: 'ゆっくり出勤・メール確認' },
       { time: '11:30', activity: 'サロンワーク開始' },
@@ -103,6 +138,7 @@ export const NEWS: NewsPost[] = [
   },
   {
     id: 3,
+    slug: 'mom-stylist-share-salon',
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】子育てとキャリアを両立。ママ美容師のシェアサロン活用法',
@@ -120,6 +156,7 @@ export const NEWS: NewsPost[] = [
   },
   {
     id: 4,
+    slug: 'young-stylist-independence',
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】24歳で独立。SALON SIFTがくれた自信と集客のチャンス',
@@ -137,6 +174,7 @@ export const NEWS: NewsPost[] = [
   },
   {
     id: 5,
+    slug: 'transfer-600k-income-change',
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】移籍初月から手取り60万。高還元率がもたらした生活の変化',
@@ -154,6 +192,7 @@ export const NEWS: NewsPost[] = [
   },
   {
     id: 6,
+    slug: 'takasaki-zero-customer-start',
     date: '2025.06.26',
     category: 'INTERVIEW',
     title: '【インタビュー】高崎駅前という好立地を武器に、顧客ゼロからスタート',
@@ -174,6 +213,7 @@ export const NEWS: NewsPost[] = [
 export const BLOG_POSTS: NewsPost[] = [
   {
     id: 101,
+    slug: 'salon-trend-color-layer',
     date: '2025.10.15',
     category: 'STYLE',
     title: '2026年最新サロントレンド：透明感カラーとレイヤーカットの融合',
@@ -197,12 +237,13 @@ export const BLOG_POSTS: NewsPost[] = [
   },
   {
     id: 102,
+    slug: 'share-salon-freelance',
     date: '2025.10.10',
     category: 'REPORT',
     title: 'シェアサロンのリアルな裏側：フリーランス美容師の1日',
     imageUrl: '/images/blog_2.png',
     author: 'SALON SIFT Editorial',
-    readTime: '4 min read',
+    readTime: '3 min read',
     sections: [
       {
         heading: '縛られない働き方の実態',
@@ -220,12 +261,13 @@ export const BLOG_POSTS: NewsPost[] = [
   },
   {
     id: 103,
+    slug: 'zero-investment-salon-equipment',
     date: '2025.10.05',
     category: 'INSIDE',
     title: '設備投資ゼロで最高のパフォーマンスを。SALON SIFTの最新設備紹介',
     imageUrl: '/images/blog_3.png',
     author: 'SALON SIFT Facility Team',
-    readTime: '2 min read',
+    readTime: '3 min read',
     sections: [
       {
         heading: '妥協なきプロ仕様の空間',
@@ -243,6 +285,7 @@ export const BLOG_POSTS: NewsPost[] = [
   },
   {
     id: 104,
+    slug: 'stylist-survival-pricing-repeat',
     date: '2025.09.28',
     category: 'BUSINESS',
     title: '美容師の生存戦略：単価アップとリピート率向上のための接客術',
@@ -269,5 +312,9 @@ export const BLOG_POSTS: NewsPost[] = [
 export const FAQS: FAQItem[] = [
   { id: 1, question: '利用料金について教えてください。', answer: '歩合率は業界最高水準の80%〜90%となっております。詳細は収益シミュレーションをご覧ください。' },
   { id: 2, question: '見学は可能ですか？', answer: 'はい、随時受け付けております。LINEよりお問い合わせください。' },
-  { id: 3, question: '材料の持ち込みは可能ですか？', answer: '可能です。また、当サロンで用意しているプロ仕様の材料もご利用いただけます。' }
+  { id: 3, question: '材料の持ち込みは可能ですか？', answer: '可能です。また、当サロンで用意しているプロ仕様の材料もご利用いただけます。' },
+  { id: 4, question: '本当に手取り60万になりますか？', answer: 'はい，なります。収益シミュレーションを一緒にやりましょう。正しくこういう手順で60万円になるというのは当日打ち合わせにて共有させていただきます。' },
+  { id: 5, question: '集客は本当にサロン負担ですか？', answer: 'はい。大手集客サイト（HotPepper Beauty等）の最上位プランやSNS広告費はすべてサロンが負担しています。しかし「ただ待っているだけ」の方にはお客様はつきません。プロフィール作成やスタイル写真の提供など、自己プロデュースには協力していただきます。' },
+  { id: 6, question: '誰でも採用してもらえますか？', answer: 'いいえ。私たちは「現状に甘んじる人」や「サロンのせいにする人」はお断りしています。また、一定レベルの技術力と接客力があるかを確認するため、面談と技術チェックは厳格に行います。' }
 ];
+

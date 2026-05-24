@@ -4,12 +4,12 @@ import { BLOG_POSTS } from '../constants';
 import { ArrowLeft, Clock, User, Feather } from 'lucide-react';
 
 const BlogDetailPage: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const blog = BLOG_POSTS.find(n => n.id === Number(id));
+    const { slug } = useParams<{ slug: string }>();
+    const blog = BLOG_POSTS.find(n => n.slug === slug);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [slug]);
 
     if (!blog) {
         return (

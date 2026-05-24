@@ -38,10 +38,10 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="simulation" element={<SimulationPage />} />
           <Route path="voice" element={<VoiceListPage />} />
-          <Route path="voice/:id" element={<VoiceDetailPage />} />
+          <Route path="voice/:slug" element={<VoiceDetailPage />} />
           <Route path="salons" element={<SalonInfoPage />} />
           <Route path="blog" element={<BlogListPage />} />
-          <Route path="blog/:id" element={<BlogDetailPage />} />
+          <Route path="blog/:slug" element={<BlogDetailPage />} />
           <Route path="faq" element={<FAQListPage />} />
           {/* Area pages */}
           <Route path="area/takasaki" element={<TakasakiPage />} />

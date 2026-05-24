@@ -1,4 +1,10 @@
 
+export interface RecruitRequirement {
+  title: string;
+  body: string;
+  isWarning?: boolean;
+}
+
 export interface SalonLocation {
   id: string;
   name: string;
@@ -10,7 +16,16 @@ export interface SalonLocation {
     hotpepper?: string;
     beauty?: string;
   };
+  label?: string;
+  subtitle?: string;
+  description?: string;
+  recruitBadge?: string;
+  businessHours?: string;
+  holidays?: string;
+  recruitRequirements?: RecruitRequirement[];
+  facilities?: string[];
 }
+
 
 export interface ScheduleItem {
   time: string;
@@ -24,6 +39,7 @@ export interface BlogSection {
 
 export interface NewsPost {
   id: number;
+  slug: string;
   date: string;
   category: string;
   title: string;

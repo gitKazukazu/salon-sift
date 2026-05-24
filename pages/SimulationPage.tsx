@@ -83,7 +83,7 @@ const SimulationPage: React.FC = () => {
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-[12px] font-bold tracking-[0.4em] text-[#3a533d] mb-4 uppercase">Simulation</p>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-widest text-gray-900 mb-6">群馬の美容師 収益シミュレーション<br className="md:hidden" />｜高崎・前橋の美容室求人</h1>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-widest text-gray-900 mb-6">収益シミュレーション<span className="block text-base md:text-lg mt-4 tracking-wider">群馬の美容師求人｜高崎・前橋の美容室 SALON SIFT</span></h1>
             <p className="text-gray-600 leading-relaxed text-sm md:text-base">
               SALON SIFTでの収益を試算できます。<br className="hidden md:block"/>
               実際の収益は、ご利用状況などによって異なりますので、目安としてご利用ください。

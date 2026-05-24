@@ -4,12 +4,12 @@ import { NEWS } from '../constants';
 import { ArrowLeft, Clock, MessageCircle, Heart, User } from 'lucide-react';
 
 const VoiceDetailPage: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const interview = NEWS.find(n => n.id === Number(id));
+    const { slug } = useParams<{ slug: string }>();
+    const interview = NEWS.find(n => n.slug === slug);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [slug]);
 
     if (!interview) {
         return (

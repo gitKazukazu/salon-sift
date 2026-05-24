@@ -53,7 +53,7 @@ const BlogNews: React.FC = () => {
           >
             {displayNews.length > 0 ? (
               displayNews.map((item, idx) => (
-                <Link to={activeTab === 'INTERVIEW' ? `/voice/${item.id}` : `/blog/${item.id}`} key={item.id} className="min-w-[280px] md:min-w-[320px] bg-white shadow-sm snap-start group/card block">
+                <Link to={activeTab === 'INTERVIEW' ? `/voice/${item.slug}` : `/blog/${item.slug}`} key={item.id} className="min-w-[280px] md:min-w-[320px] bg-white shadow-sm snap-start group/card block">
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" />
                     <div className="absolute top-0 left-0 bg-[#3a533d] text-white text-[60px] font-montserrat font-bold leading-none p-2 opacity-10">

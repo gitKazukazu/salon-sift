@@ -10,7 +10,7 @@ const BlogListPage: React.FC = () => {
             <div className="max-w-[1200px] mx-auto px-6">
                 <div className="text-center mb-16 md:mb-24">
                     <p className="text-[12px] font-bold tracking-[0.4em] text-[#3a533d] mb-4 uppercase">Blog</p>
-                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">群馬の美容師求人ブログ＆ニュース<br className="md:hidden" />｜高崎・前橋 SALON SIFT</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold font-montserrat tracking-widest text-gray-900 mb-6">ブログ＆ニュース<span className="block text-base md:text-lg mt-4 tracking-wider">群馬の美容師求人｜高崎・前橋の美容室 SALON SIFT</span></h1>
                     <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-bold">
                         サロンスタイルの最新情報、シェアサロンのリアルな裏側、そして美容師としての生存戦略について発信します。
                     </p>
@@ -18,7 +18,7 @@ const BlogListPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {displayBlogs.map((blog) => (
-                        <Link to={`/blog/${blog.id}`} key={blog.id} className="group cursor-pointer block bg-white shadow-sm hover:shadow-xl transition-all duration-300 rounded-sm">
+                        <Link to={`/blog/${blog.slug}`} key={blog.id} className="group cursor-pointer block bg-white shadow-sm hover:shadow-xl transition-all duration-300 rounded-sm">
                             <div className="relative aspect-[16/9] overflow-hidden">
                                 <img
                                     src={blog.imageUrl}
