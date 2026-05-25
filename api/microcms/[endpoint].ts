@@ -12,7 +12,7 @@
 //   GET /api/microcms/salon-info                → サロン情報（単一オブジェクト）
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getClient } from '../../lib/microcms';
+import { getClient } from '../../lib/microcms.js';
 
 const LIST_ENDPOINTS = new Set(['voice', 'blog', 'faq']);
 const OBJECT_ENDPOINTS = new Set(['salon-info']);
