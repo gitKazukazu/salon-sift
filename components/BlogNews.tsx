@@ -1,16 +1,85 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NEWS, BLOG_POSTS } from '../constants';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import type { MicroCMSBlog, MicroCMSListResponse, MicroCMSVoice } from '../types';
 
 type TabType = 'INTERVIEW' | 'OTHER';
 
+interface CardItem {
+  id: string;
+  slug: string;
+  title: string;
+  imageUrl: string;
+  date: string;
+  category: string;
+}
+
+const formatDate = (iso?: string): string => {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return iso;
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+};
+
 const BlogNews: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('INTERVIEW');
+  const [voices, setVoices] = useState<MicroCMSVoice[]>([]);
+  const [blogs, setBlogs] = useState<MicroCMSBlog[]>([]);
+  const [loading, setLoading] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const displayNews = activeTab === 'INTERVIEW' ? NEWS : BLOG_POSTS;
+  useEffect(() => {
+    let cancelled = false;
+
+    // order昇順、未入力は末尾、同順内はdate降順
+    const sortByOrder = <T extends { order?: number; date?: string }>(items: T[]): T[] =>
+      [...items].sort((a, b) => {
+        const aHas = typeof a.order === 'number';
+        const bHas = typeof b.order === 'number';
+        if (aHas && bHas) return (a.order as number) - (b.order as number);
+        if (aHas) return -1;
+        if (bHas) return 1;
+        return (b.date ?? '').localeCompare(a.date ?? '');
+      });
+
+    Promise.all([
+      fetch('/api/microcms/voice').then(r => r.ok ? r.json() as Promise<MicroCMSListResponse<MicroCMSVoice>> : Promise.reject(`voice HTTP ${r.status}`)),
+      fetch('/api/microcms/blog').then(r => r.ok ? r.json() as Promise<MicroCMSListResponse<MicroCMSBlog>> : Promise.reject(`blog HTTP ${r.status}`)),
+    ])
+      .then(([voiceRes, blogRes]) => {
+        if (cancelled) return;
+        setVoices(sortByOrder(voiceRes.contents));
+        const visibleBlogs = blogRes.contents.filter(b => b.isVisible !== false);
+        setBlogs(sortByOrder(visibleBlogs));
+        setLoading(false);
+      })
+      .catch(err => {
+        if (cancelled) return;
+        console.error('BlogNews fetch error:', err);
+        setLoading(false);
+      });
+
+    return () => { cancelled = true; };
+  }, []);
+
+  const displayItems: CardItem[] = activeTab === 'INTERVIEW'
+    ? voices.map(v => ({
+        id: v.id,
+        slug: v.slug,
+        title: v.title,
+        imageUrl: v.image.url,
+        date: formatDate(v.date),
+        category: v.category?.join(' / ') ?? '',
+      }))
+    : blogs.map(b => ({
+        id: b.id,
+        slug: b.slug,
+        title: b.title,
+        imageUrl: b.image.url,
+        date: formatDate(b.date),
+        category: b.category?.join(' / ') ?? '',
+      }));
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -51,8 +120,12 @@ const BlogNews: React.FC = () => {
             ref={scrollContainerRef}
             className="flex gap-4 overflow-x-auto pb-8 snap-x no-scrollbar scroll-smooth"
           >
-            {displayNews.length > 0 ? (
-              displayNews.map((item, idx) => (
+            {loading ? (
+              <div className="w-full py-20 text-center text-gray-400 font-bold tracking-widest text-sm flex items-center justify-center">
+                読み込み中...
+              </div>
+            ) : displayItems.length > 0 ? (
+              displayItems.map((item, idx) => (
                 <Link to={activeTab === 'INTERVIEW' ? `/voice/${item.slug}` : `/blog/${item.slug}`} key={item.id} className="min-w-[280px] md:min-w-[320px] bg-white shadow-sm snap-start group/card block">
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" />
@@ -63,7 +136,9 @@ const BlogNews: React.FC = () => {
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="text-[10px] font-bold text-gray-400">{item.date}</span>
-                      <span className="text-[10px] font-bold border border-gray-200 px-2 py-0.5 text-gray-500">{item.category}</span>
+                      {item.category && (
+                        <span className="text-[10px] font-bold border border-gray-200 px-2 py-0.5 text-gray-500">{item.category}</span>
+                      )}
                     </div>
                     <h3 className="text-sm font-bold leading-relaxed h-12 overflow-hidden group-hover/card:text-[#3a533d] transition-colors">
                       {item.title}

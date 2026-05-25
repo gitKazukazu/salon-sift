@@ -1,10 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, ExternalLink, Clock, Calendar, CheckCircle2 } from 'lucide-react';
-import { SALONS } from '../constants';
+import type { MicroCMSSalonInfo } from '../types';
 
 const SalonInfoPage: React.FC = () => {
-    // 最初の店舗のみを取得
-    const salon = SALONS[0];
+    const [salon, setSalon] = useState<MicroCMSSalonInfo | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        let cancelled = false;
+
+        fetch('/api/microcms/salon-info')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json() as Promise<MicroCMSSalonInfo>;
+            })
+            .then(data => {
+                if (cancelled) return;
+                setSalon(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                if (cancelled) return;
+                console.error('Salon fetch error:', err);
+                setError('サロン情報の読み込みに失敗しました。時間をおいて再度お試しください。');
+                setLoading(false);
+            });
+
+        return () => { cancelled = true; };
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="bg-[#f7f7f5] min-h-screen pt-24 pb-32">
+                <div className="text-center py-20 text-gray-500 font-bold tracking-widest text-sm">
+                    読み込み中...
+                </div>
+            </div>
+        );
+    }
+
+    if (error || !salon) {
+        return (
+            <div className="bg-[#f7f7f5] min-h-screen pt-24 pb-32">
+                <div className="max-w-[800px] mx-auto px-6">
+                    <div className="bg-white border border-[#B91C1C] p-6 text-[#B91C1C] font-bold text-sm">
+                        {error ?? 'サロン情報が見つかりませんでした。'}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (salon.isVisible === false) {
+        return (
+            <div className="bg-[#f7f7f5] min-h-screen pt-24 pb-32">
+                <div className="text-center py-20 text-gray-500 font-bold tracking-widest text-sm">
+                    現在このサロン情報は公開されていません。
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-[#f7f7f5] min-h-screen pt-24 pb-32">
@@ -19,9 +75,11 @@ const SalonInfoPage: React.FC = () => {
                             <span className="text-base md:text-lg block mt-3 tracking-wider">{salon.subtitle}</span>
                         )}
                     </h1>
-                    <div className="text-[10px] font-bold tracking-[0.2em] text-[#3a533d] border border-[#3a533d] px-3 py-1 inline-block mb-6">
-                        {salon.city}
-                    </div>
+                    {salon.city && (
+                        <div className="text-[10px] font-bold tracking-[0.2em] text-[#3a533d] border border-[#3a533d] px-3 py-1 inline-block mb-6">
+                            {salon.city}
+                        </div>
+                    )}
                     {salon.description && (
                         <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-bold whitespace-pre-line">
                             {salon.description}
@@ -30,23 +88,25 @@ const SalonInfoPage: React.FC = () => {
                 </div>
 
                 {/* Hero Image */}
-                <div className="relative aspect-[21/9] w-full mb-20 overflow-hidden shadow-2xl">
-                    <img
-                        src={salon.imageUrl}
-                        alt={salon.name}
-                        className="w-full h-full object-cover transition-all duration-1000"
-                    />
-                    {salon.recruitBadge && (
-                        <div className="absolute top-6 left-6 md:top-10 md:left-10 bg-[#B91C1C] text-white px-6 py-3 text-xs md:text-sm font-bold tracking-widest shadow-lg">
-                            {salon.recruitBadge}
-                        </div>
-                    )}
-                </div>
+                {salon.image?.url && (
+                    <div className="relative aspect-[21/9] w-full mb-20 overflow-hidden shadow-2xl">
+                        <img
+                            src={salon.image.url}
+                            alt={salon.name}
+                            className="w-full h-full object-cover transition-all duration-1000"
+                        />
+                        {salon.recruitBadge && (
+                            <div className="absolute top-6 left-6 md:top-10 md:left-10 bg-[#B91C1C] text-white px-6 py-3 text-xs md:text-sm font-bold tracking-widest shadow-lg">
+                                {salon.recruitBadge}
+                            </div>
+                        )}
+                    </div>
+                )}
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                     {/* 左側：詳細情報と条件 */}
                     <div className="lg:col-span-7 space-y-16">
-                        {salon.recruitRequirements && (
+                        {salon.recruitRequirements && salon.recruitRequirements.length > 0 && (
                             <section>
                                 <h2 className="text-2xl font-bold border-b-2 border-[#3a533d] pb-4 mb-8 tracking-widest">募集要項・待遇</h2>
                                 <div className="space-y-6 text-sm font-bold text-gray-700">
@@ -55,14 +115,14 @@ const SalonInfoPage: React.FC = () => {
                                             <h3 className={`text-lg mb-2 border-b border-gray-100 pb-2 ${req.isWarning ? 'text-gray-600' : 'text-[#3a533d]'}`}>
                                                 {req.title}
                                             </h3>
-                                            <p className="leading-relaxed mt-4" dangerouslySetInnerHTML={{ __html: req.body }} />
+                                            <div className="leading-relaxed mt-4" dangerouslySetInnerHTML={{ __html: req.body }} />
                                         </div>
                                     ))}
                                 </div>
                             </section>
                         )}
 
-                        {salon.facilities && (
+                        {salon.facilities && salon.facilities.length > 0 && (
                             <section>
                                 <h2 className="text-2xl font-bold border-b-2 border-[#3a533d] pb-4 mb-8 tracking-widest">サロン環境・設備</h2>
                                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-bold text-gray-700">
@@ -91,10 +151,12 @@ const SalonInfoPage: React.FC = () => {
                                         </a>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-4 pb-6 border-b border-gray-100">
-                                    <Phone size={20} className="text-[#3a533d] shrink-0" />
-                                    <p className="text-lg font-montserrat tracking-wider">{salon.phone}</p>
-                                </div>
+                                {salon.phone && (
+                                    <div className="flex items-center gap-4 pb-6 border-b border-gray-100">
+                                        <Phone size={20} className="text-[#3a533d] shrink-0" />
+                                        <p className="text-lg font-montserrat tracking-wider">{salon.phone}</p>
+                                    </div>
+                                )}
                                 {salon.businessHours && (
                                     <div className="flex items-center gap-4 pb-6 border-b border-gray-100">
                                         <Clock size={20} className="text-[#3a533d] shrink-0" />
@@ -110,13 +172,13 @@ const SalonInfoPage: React.FC = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                {salon.links.hotpepper && (
-                                    <a href={salon.links.hotpepper} className="bg-[#333] text-white text-center py-4 text-xs font-bold tracking-widest hover:bg-[#3a533d] transition-colors flex items-center justify-center gap-2">
+                                {salon.hotpepper && (
+                                    <a href={salon.hotpepper} target="_blank" rel="noopener noreferrer" className="bg-[#333] text-white text-center py-4 text-xs font-bold tracking-widest hover:bg-[#3a533d] transition-colors flex items-center justify-center gap-2">
                                         HotPepper Beauty <ExternalLink size={14} />
                                     </a>
                                 )}
-                                {salon.links.beauty && (
-                                    <a href={salon.links.beauty} className="border border-gray-300 text-center py-4 text-xs font-bold tracking-widest hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                                {salon.beauty && (
+                                    <a href={salon.beauty} target="_blank" rel="noopener noreferrer" className="border border-gray-300 text-center py-4 text-xs font-bold tracking-widest hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                                         楽天ビューティ <ExternalLink size={14} />
                                     </a>
                                 )}
