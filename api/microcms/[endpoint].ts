@@ -26,7 +26,7 @@ const ALLOWED_ORDER_FIELDS = new Set([
   'date', '-date',
 ]);
 
-const CACHE_DURATION = 60 * 10; // 10分
+const CACHE_DURATION = 60; // 1分
 
 type CacheEntry = { data: unknown; fetchedAt: number };
 const cache = new Map<string, CacheEntry>();
